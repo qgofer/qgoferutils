@@ -52,7 +52,7 @@ def init_path(path: Optional[Path] = None) -> Path:
 def get_log_path(path: Optional[Path] = None) -> Path:
     """Returns the log path."""
     if path is None:
-        path = init_path(path) / '.qgofer' / 'logs'
+        path = init_path(path) / ".qgofer" / "logs"
         path.mkdir(parents=True, exist_ok=True)
     return Path(path).expanduser().resolve()
 
@@ -80,7 +80,9 @@ def get_logger(log_path=None, run_id=None) -> logging.Logger:
         ch.setLevel(logging.DEBUG)
 
         # create formatter and add it to the handlers
-        formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+        formatter = logging.Formatter(
+            "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+        )
         fh.setFormatter(formatter)
         ch.setFormatter(formatter)
 
@@ -140,7 +142,6 @@ async def make_api_request(
         get_logger().error("Connection error while fetching data {}".format(e))
         return get_failed_response()
 
-
 # %% ../nbs/00_core.ipynb 12
 class QGoferDBWrapper:
     def __init__(self, db_path):
@@ -179,7 +180,9 @@ class QGoferDBWrapper:
         :param values: list of values to insert into the table
         :return: None
         """
-        self.cursor.executemany(f"INSERT INTO {table_name} ({columns}) VALUES ({values})", values)
+        self.cursor.executemany(
+            f"INSERT INTO {table_name} ({columns}) VALUES ({values})", values
+        )
         self.conn.commit()
 
     def select(self, table_name, columns, where=None):
@@ -204,7 +207,9 @@ class QGoferDBWrapper:
         :param q: search query
         :return: list of rows
         """
-        self.cursor.execute(f"SELECT * FROM {table_name} WHERE {column_name} LIKE '%{q}%'")
+        self.cursor.execute(
+            f"SELECT * FROM {table_name} WHERE {column_name} LIKE '%{q}%'"
+        )
         return self.cursor.fetchall()
 
     def update(self, table_name, set_clause, where):
@@ -236,8 +241,6 @@ class QGoferDBWrapper:
         """
         self.cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
         self.conn.commit()
-
-
 
 # %% ../nbs/00_core.ipynb 13
 log_path = get_log_path()
@@ -273,15 +276,15 @@ class QGoferConfig:
         """Initialize the class. using home and root_dir as the home and root directory of qgofer."""
         self._home = home
         self._root_dir = root_dir
-        self._qgofer = self._home / '.qgofer'
+        self._qgofer = self._home / ".qgofer"
         self._qgofer.mkdir(parents=True, exist_ok=True)
-        self._qgofer_config = self._qgofer / 'config.toml'
+        self._qgofer_config = self._qgofer / "config.toml"
         self._qgofer_config.touch(exist_ok=True)
-        self._qgofer_cache = self._qgofer / 'cache'
+        self._qgofer_cache = self._qgofer / "cache"
         self._qgofer_cache.mkdir(parents=True, exist_ok=True)
-        self._qgofer_cache_db = self._qgofer_cache / 'qgofer.db'
+        self._qgofer_cache_db = self._qgofer_cache / "qgofer.db"
         self._qgofer_cache_db.touch(exist_ok=True)
-        self._qgofer_logs = self._qgofer / 'logs'
+        self._qgofer_logs = self._qgofer / "logs"
         self._qgofer_logs.mkdir(parents=True, exist_ok=True)
 
     @property
@@ -326,8 +329,7 @@ class QGoferConfig:
         self._clear_cache_db()
 
     def clear_logs(self) -> None:
-        """This function clears the logs folder
-        """
+        """This function clears the logs folder"""
         try:
             shutil.rmtree(self._qgofer_logs)
             self._qgofer_logs.mkdir(parents=True, exist_ok=True)
