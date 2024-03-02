@@ -3,7 +3,7 @@ website:
     contents:
       - index.ipynb
       - 00_core.ipynb
-      - 001_db.ipynb
-      - 002_logger.ipynb
-      - 003_config.ipynb
-      - 004_requests.ipynb
+      - 01_db.ipynb
+      - 02_logger.ipynb
+      - 03_config.ipynb
+      - 04_requests.ipynb

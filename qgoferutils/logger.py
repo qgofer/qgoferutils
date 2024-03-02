@@ -3,12 +3,18 @@
 # %% auto 0
 __all__ = ['get_log_path', 'get_logger']
 
-# %% ../nbs/02_logger.ipynb 3
+# %% ../nbs/02_logger.ipynb 4
 import logging
 from pathlib import Path
 from typing import Optional
 
-# %% ../nbs/02_logger.ipynb 4
+try:
+    from .core import init_path
+    from .core import generate_uuid
+except:
+    pass
+
+# %% ../nbs/02_logger.ipynb 5
 def get_log_path(path: Optional[Path] = None) -> Path:
     """Returns the log path."""
     if path is None:
@@ -16,7 +22,7 @@ def get_log_path(path: Optional[Path] = None) -> Path:
         path.mkdir(parents=True, exist_ok=True)
     return Path(path).expanduser().resolve()
 
-# %% ../nbs/02_logger.ipynb 5
+# %% ../nbs/02_logger.ipynb 6
 def get_logger(log_path=None, run_id=None) -> logging.Logger:
     """Returns a generic logger for logging relevant information pertaining to run of qgofer.
 

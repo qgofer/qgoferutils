@@ -2,8 +2,8 @@ project:
   output-dir: _docs
 
 website:
-  title: "utils-qgofer"
-  site-url: "https://qgofer.github.io/utils-qgofer"
+  title: "qgoferutils"
+  site-url: "https://qgofer.github.io/qgoferutils"
   description: "Utility functions that cut across most qgofer projects"
   repo-branch: main
-  repo-url: "https://github.com/qgofer/utils-qgofer"
+  repo-url: "https://github.com/qgofer/qgoferutils"
