@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "utils-qgofer"
+  site-url: "https://qgofer.github.io/utils-qgofer"
+  description: "Utility functions that cut across most qgofer projects"
+  repo-branch: main
+  repo-url: "https://github.com/qgofer/utils-qgofer"
