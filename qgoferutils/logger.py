@@ -5,8 +5,10 @@ __all__ = ['get_log_path', 'get_logger']
 
 # %% ../nbs/02_logger.ipynb 4
 import logging
+import sys
 from pathlib import Path
 from typing import Optional
+from datetime import datetime
 
 try:
     from .core import init_path
@@ -36,7 +38,9 @@ def get_logger(log_path=None, run_id=None) -> logging.Logger:
     if not run_id:
         run_id = generate_uuid()
 
-    file_path = f"{log_path}/{run_id}_log_{datetime.datetime.now().strftime('%y_%m_%d_%H_%M_%S')}.log"
+    file_path = (
+        f"{log_path}/{run_id}_log_{datetime.now().strftime('%y_%m_%d_%H_%M_%S')}.log"
+    )
     if not logger.handlers:
         # create file handler which logs even debug messages
         fh = logging.FileHandler(file_path)

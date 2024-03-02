@@ -3,13 +3,13 @@
 # %% auto 0
 __all__ = ['log_path', 'logger', 'QGoferConfig']
 
-# %% ../nbs/03_config.ipynb 5
+# %% ../nbs/03_config.ipynb 6
 try:
     from .logger import get_log_path, get_logger
 except:
     pass
 
-# %% ../nbs/03_config.ipynb 6
+# %% ../nbs/03_config.ipynb 7
 log_path = get_log_path()
 logger = get_logger(log_path=log_path)
 
