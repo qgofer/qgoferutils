@@ -9,15 +9,5 @@ documentation.
 ## Install
 
 ``` sh
-pip install utils_qgofer
+pip install utils-qgofer
 ```
-
-## How to use
-
-Fill me in please! Don’t forget code examples:
-
-``` python
-1+1
-```
-
-    2
