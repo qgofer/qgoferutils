@@ -1,0 +1,10 @@
+name: qgoferutils
+channels:
+  - defaults
+dependencies:
+  - python
+  - jupyterlab
+  - nbdev
+  - orjson
+  - black
+  - requests
