@@ -7,19 +7,16 @@ from typing import Dict, Any
 from pathlib import Path
 
 # %% auto 0
-__all__ = ['log_path', 'logger', 'QGoferConfig']
+__all__ = ['QGoferConfig', 'create_config_table', 'store_hugging_face_token']
 
 # %% ../nbs/03_config.ipynb 6
 try:
     from qgoferutils.logger import get_log_path, get_logger
+    from qgoferutils.db import QGoferDBWrapper
 except:
     pass
 
 # %% ../nbs/03_config.ipynb 7
-log_path = get_log_path()
-logger = get_logger(log_path=log_path)
-
-
 class QGoferConfig:
     """The main appliation class for managing the entirety of qgofer.
 
@@ -36,13 +33,17 @@ class QGoferConfig:
         "_qgofer_cache",
         "_qgofer_cache_db",
         "_qgofer_logs",
+        "_log_path",
+        "_logger",
     )
     _instances: Dict[Any, Any] = {}
 
-    def __new__(cls, home, root_dir) -> QGoferConfig:
+    def __new__(
+        cls, home: Path = Path.home(), root_dir: Path = Path.home()
+    ) -> QGoferConfig:
         """Create a new instance of the class. by using the singleton pattern."""
         if cls not in cls._instances:
-            cls._instances[cls] = super(App, cls).__new__(cls)
+            cls._instances[cls] = super(QGoferConfig, cls).__new__(cls)
         return cls._instances[cls]
 
     def __init__(self, home: Path = Path.home(), root_dir: Path = Path.home()):
@@ -59,6 +60,8 @@ class QGoferConfig:
         self._qgofer_cache_db.touch(exist_ok=True)
         self._qgofer_logs = self._qgofer / "logs"
         self._qgofer_logs.mkdir(parents=True, exist_ok=True)
+        self._log_path = get_log_path()
+        self._logger = get_logger(log_path=self._log_path)
 
     @property
     def home(self) -> Path:
@@ -91,14 +94,14 @@ class QGoferConfig:
         try:
             os.remove(self.qgofer_cache_db)
         except FileNotFoundError as err:
-            logger.error(err)
+            self._logger.error(err)
 
     def clear_cache(self) -> None:
         """Clears the cache folder"""
         try:
             shutil.rmtree(self._qgofer_cache)
         except OSError as err:
-            logger.error(err)
+            self._logger.error(err)
         self._clear_cache_db()
 
     def clear_logs(self) -> None:
@@ -107,7 +110,7 @@ class QGoferConfig:
             shutil.rmtree(self._qgofer_logs)
             self._qgofer_logs.mkdir(parents=True, exist_ok=True)
         except OSError as err:
-            logger.error(err)
+            self._logger.error(err)
 
     def __repr__(self) -> str:
         """Return the representation of the class."""
@@ -116,3 +119,19 @@ class QGoferConfig:
     def __str__(self) -> str:
         """Return the string representation of the class."""
         return "Qgofer your personal assistant"
+
+# %% ../nbs/03_config.ipynb 8
+def create_config_table(qgofer_cache_db) -> None:
+    """Create the qgofer config table."""
+    qgofer_db_wrapper = QGoferDBWrapper(qgofer_cache_db)
+    qgofer_db_wrapper.create_table("qgofer_config", "key TEXT UNIQUE,value TEXT")
+
+# %% ../nbs/03_config.ipynb 9
+def store_hugging_face_token(API_TOKEN, qgofer_cache_db) -> None:
+    """store the hugging face api token"""
+    qgofer_db_wrapper = QGoferDBWrapper(qgofer_cache_db)
+    qgofer_db_wrapper.insert(
+        "qgofer_config",
+        columns="key, value",
+        values=f"'HUGGING_FACE_KEY', '{API_TOKEN}'",
+    )

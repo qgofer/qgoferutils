@@ -27,12 +27,11 @@ class QGoferDBWrapper:
         """
         Insert a row into the database
         :param table_name: name of the table to insert into
-        :param columns: list of columns to insert into
-        :param values: list of values to insert into the table
+        :param columns: a string of comma seperated values to insert into
+        :param values: a string of comma seperated values to insert into the table. Noe that each word should be single quoted eg "'max', 'min'"
         :return: None
         """
         sql = f"INSERT INTO {table_name} ({columns}) VALUES ({values})"
-        print(sql)
         self.cursor.execute(sql)
         self.conn.commit()
 
@@ -40,8 +39,8 @@ class QGoferDBWrapper:
         """
         Insert multiple rows into the database
         :param table_name: name of the table to insert into
-        :param columns: list of columns to insert into
-        :param values: list of values to insert into the table
+        :param columns:  a string of comma seperated values to insert into
+        :param values:  a string of comma seperated values to insert into the table. Noe that each word should be single quoted eg "'max', 'min'"
         :return: None
         """
         self.cursor.executemany(
