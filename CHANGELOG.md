@@ -2,6 +2,17 @@
 
 <!-- do not remove -->
 
+## 0.0.4
+
+
+
+
+## 0.0.3
+
+- Added two new functions namely; create_config_table and store_hugging_face_token
+- fixed how log file is created when QGoferConfig is initialized.
+
+
 ## 0.0.3
 
 removed black as a dependency
