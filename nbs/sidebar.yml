@@ -7,3 +7,4 @@ website:
       - 02_logger.ipynb
       - 03_config.ipynb
       - 04_requests.ipynb
+      - 05_manage_index.ipynb
