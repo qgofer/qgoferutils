@@ -2,6 +2,11 @@
 
 <!-- do not remove -->
 
+## 0.0.5
+
+- Added property for accessing logs information on QGoferConfig
+
+
 ## 0.0.4
 
 
