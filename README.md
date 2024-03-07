@@ -20,3 +20,4 @@ Available classes in qgoferutils are:
 - from qgoferutils.requests import make_api_request
 - from qgoferutils.config import create_config_table
 - from qgoferutils.config import store_hugging_face_token
+- from qgoferutils.manage_index import \*

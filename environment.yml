@@ -8,3 +8,5 @@ dependencies:
   - orjson
   - black
   - requests
+  - nbqa[toolchain]
+  - aiofiles

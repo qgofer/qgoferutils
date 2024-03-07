@@ -3,10 +3,16 @@
 # %% auto 0
 __all__ = ['get_failed_response', 'make_api_request']
 
-# %% ../nbs/04_requests.ipynb 4
+# %% ../nbs/04_requests.ipynb 3
 import requests
+import orjson
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
+
+try:
+    from qgoferutils.logger import get_logger
+except:
+    pass
 
 # %% ../nbs/04_requests.ipynb 5
 def get_failed_response(
@@ -54,5 +60,5 @@ async def make_api_request(
         resp = s.send(prepped)
         return resp
     except Exception as e:
-        get_logger().error("Connection error while fetching data {}".format(e))
+        get_logger().error(f"Connection error while fetching data {e}")
         return get_failed_response()
