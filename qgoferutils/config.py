@@ -3,6 +3,7 @@
 # %% ../nbs/03_config.ipynb 5
 from __future__ import annotations
 import shutil
+import logging
 from typing import Dict, Any
 from pathlib import Path
 
@@ -87,6 +88,16 @@ class QGoferConfig:
     def qgofer_cache_db(self) -> Path:
         """Return the qgofer cache database."""
         return self._qgofer_cache_db
+
+    @property
+    def logger(self) -> logging.Logger:
+        """Return the logger for QGoferConfig"""
+        return self._logger
+
+    @property
+    def logger_path(self) -> Path:
+        """Return logger path for QGoferConfig"""
+        return self._log_path
 
     def _clear_cache_db(self) -> None:
         """Clear the qgofer cache database."""
