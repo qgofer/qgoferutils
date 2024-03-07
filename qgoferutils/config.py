@@ -99,6 +99,11 @@ class QGoferConfig:
         """Return logger path for QGoferConfig"""
         return self._log_path
 
+    @property
+    def root_dir(self) -> Path:
+        """Return the root directory of the user"""
+        return self._root_dir
+
     def _clear_cache_db(self) -> None:
         """Clear the qgofer cache database."""
         qgofer_db_wrapper = QGoferDBWrapper(self.qgofer_cache_db)
