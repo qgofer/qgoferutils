@@ -5,8 +5,3 @@ dependencies:
   - python
   - jupyterlab
   - nbdev
-  - orjson
-  - black
-  - requests
-  - nbqa[toolchain]
-  - aiofiles
