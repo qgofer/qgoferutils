@@ -76,7 +76,7 @@ print("Home directory:", config_instance.home)
 print("Root directory:", config_instance.root_dir)
 ```
 
-    2024-03-09 14:24:54,292 - qgofer - INFO - Logging to C:\Users\admi\.qgofer\logs/pYWtuJxdRvKZR4sTG6WsTw_log_24_03_09_14_24_54.log
+    2024-03-09 18:57:17,308 - qgofer - INFO - Logging to C:\Users\admi\.qgofer\logs/W87gwqBURyOma4QkPG6L2g_log_24_03_09_18_57_17.log
     Home directory: C:\Users\admi
     Root directory: C:\Users\admi
 
@@ -103,23 +103,29 @@ log_path = get_log_path("")
 print("Log path:", log_path)
 ```
 
-    2024-03-09 14:24:55,636 - qgofer - DEBUG - Debug message
+    2024-03-09 18:57:17,500 - qgofer - DEBUG - Debug message
     Log path: C:\Users\admi\saf-app\qgofertext\nbs
 
 #### Example 4: Making API Requests
 
 ``` python
-from qgoferutils.requests import make_api_request, get_failed_response
-
-# Make an API request to https://httpbin.org/get
-api_url = "https://httpbin.org/get"
-response = make_api_request(api_url)
-print("API Response:", response)
-
-# Get a failed response with a custom error message
-failed_response = get_failed_response(api_url)
-print("Failed Response:", failed_response)
+!pip install nest_asyncio
 ```
 
-    API Response: <coroutine object make_api_request at 0x00000234AF218AC0>
-    Failed Response: <Response [500]>
+``` python
+import nest_asyncio
+from qgoferutils.requests import make_api_request, get_failed_response
+
+nest_asyncio.apply()
+
+async def main():
+    # Make an API request to https://httpbin.org/get asynchronously
+    api_url = "https://httpbin.org/get"
+    response = await make_api_request(api_url)
+    print("API Response:", response)
+
+# Run the event loop
+asyncio.run(main())
+```
+
+    API Response: <Response [200]>
