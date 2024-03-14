@@ -5,3 +5,4 @@ dependencies:
   - python
   - jupyterlab
   - nbdev
+  - pre-commit
