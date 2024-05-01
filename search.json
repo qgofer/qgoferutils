@@ -1,0 +1,82 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "qgoferutils",
+    "section": "",
+    "text": "pip install qgoferutils\n\n\nconda install qgofer::qgoferutils\n\n\n\n\nConfiguration Module\n\nfrom qgoferutils.config import QGoferConfig, create_config_table\n\nDatabase Module\n\nfrom qgoferutils.db import QGoferDBWrapper\n\nLogger Module\n\nfrom qgoferutils.logger import get_logger, get_log_path\n\nRequests Module\n\nfrom qgoferutils.requests import make_api_request, get_failed_response\n\nUtility Functions Module\n\nfrom qgoferutils import get_env_var, generate_uuid, init_path\n\n\n\n\npip install qgoferutils\n\nRequirement already satisfied: qgoferutils in c:\\users\\admi\\miniconda3\\envs\\env4\\lib\\site-packages (0.0.7)\nRequirement already satisfied: orjson in c:\\users\\admi\\miniconda3\\envs\\env4\\lib\\site-packages (from qgoferutils) (3.9.10)\nRequirement already satisfied: requests in c:\\users\\admi\\miniconda3\\envs\\env4\\lib\\site-packages (from qgoferutils) (2.31.0)\nRequirement already satisfied: aiofiles in c:\\users\\admi\\miniconda3\\envs\\env4\\lib\\site-packages (from qgoferutils) (22.1.0)\nRequirement already satisfied: charset-normalizer&lt;4,&gt;=2 in c:\\users\\admi\\miniconda3\\envs\\env4\\lib\\site-packages (from requests-&gt;qgoferutils) (2.0.4)\nRequirement already satisfied: idna&lt;4,&gt;=2.5 in c:\\users\\admi\\miniconda3\\envs\\env4\\lib\\site-packages (from requests-&gt;qgoferutils) (3.4)\nRequirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in c:\\users\\admi\\miniconda3\\envs\\env4\\lib\\site-packages (from requests-&gt;qgoferutils) (2.1.0)\nRequirement already satisfied: certifi&gt;=2017.4.17 in c:\\users\\admi\\miniconda3\\envs\\env4\\lib\\site-packages (from requests-&gt;qgoferutils) (2024.2.2)\nNote: you may need to restart the kernel to use updated packages.\n\n\n\n\n\nfrom qgoferutils.config import QGoferConfig, create_config_table\n\n# Create a QGoferConfig instance\nconfig_instance = QGoferConfig()\n\n# Accessing attributes of QGoferConfig\nprint(\"Home directory:\", config_instance.home)\nprint(\"Root directory:\", config_instance.root_dir)\n\n2024-03-09 18:57:17,308 - qgofer - INFO - Logging to C:\\Users\\admi\\.qgofer\\logs/W87gwqBURyOma4QkPG6L2g_log_24_03_09_18_57_17.log\nHome directory: C:\\Users\\admi\nRoot directory: C:\\Users\\admi\n\n\n\n\n\n\nfrom qgoferutils.db import QGoferDBWrapper\n\n# Initialize QGoferDBWrapper with a specific database path\ndb_wrapper = QGoferDBWrapper(\"C:/data/dbb\")\n\n\n\n\n\nfrom qgoferutils.logger import get_logger, get_log_path\n\n# Get a logger with a specified log path\nlogger = get_logger(\"C:/data/db\")\nlogger.debug(\"Debug message\")\n\n# Get the log path\nlog_path = get_log_path(\"\")\nprint(\"Log path:\", log_path)\n\n2024-03-09 18:57:17,500 - qgofer - DEBUG - Debug message\nLog path: C:\\Users\\admi\\saf-app\\qgofertext\\nbs\n\n\n\n\n\n\n!pip install nest_asyncio\n\n\nimport nest_asyncio\nfrom qgoferutils.requests import make_api_request, get_failed_response\n\nnest_asyncio.apply()\n\nasync def main():\n    # Make an API request to https://httpbin.org/get asynchronously\n    api_url = \"https://httpbin.org/get\"\n    response = await make_api_request(api_url)\n    print(\"API Response:\", response)\n\n# Run the event loop\nasyncio.run(main())\n\nAPI Response: &lt;Response [200]&gt;",
+    "crumbs": [
+      "qgoferutils"
+    ]
+  },
+  {
+    "objectID": "index.html#install",
+    "href": "index.html#install",
+    "title": "qgoferutils",
+    "section": "",
+    "text": "pip install qgoferutils\n\n\nconda install qgofer::qgoferutils\n\n\n\n\nConfiguration Module\n\nfrom qgoferutils.config import QGoferConfig, create_config_table\n\nDatabase Module\n\nfrom qgoferutils.db import QGoferDBWrapper\n\nLogger Module\n\nfrom qgoferutils.logger import get_logger, get_log_path\n\nRequests Module\n\nfrom qgoferutils.requests import make_api_request, get_failed_response\n\nUtility Functions Module\n\nfrom qgoferutils import get_env_var, generate_uuid, init_path\n\n\n\n\npip install qgoferutils\n\nRequirement already satisfied: qgoferutils in c:\\users\\admi\\miniconda3\\envs\\env4\\lib\\site-packages (0.0.7)\nRequirement already satisfied: orjson in c:\\users\\admi\\miniconda3\\envs\\env4\\lib\\site-packages (from qgoferutils) (3.9.10)\nRequirement already satisfied: requests in c:\\users\\admi\\miniconda3\\envs\\env4\\lib\\site-packages (from qgoferutils) (2.31.0)\nRequirement already satisfied: aiofiles in c:\\users\\admi\\miniconda3\\envs\\env4\\lib\\site-packages (from qgoferutils) (22.1.0)\nRequirement already satisfied: charset-normalizer&lt;4,&gt;=2 in c:\\users\\admi\\miniconda3\\envs\\env4\\lib\\site-packages (from requests-&gt;qgoferutils) (2.0.4)\nRequirement already satisfied: idna&lt;4,&gt;=2.5 in c:\\users\\admi\\miniconda3\\envs\\env4\\lib\\site-packages (from requests-&gt;qgoferutils) (3.4)\nRequirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in c:\\users\\admi\\miniconda3\\envs\\env4\\lib\\site-packages (from requests-&gt;qgoferutils) (2.1.0)\nRequirement already satisfied: certifi&gt;=2017.4.17 in c:\\users\\admi\\miniconda3\\envs\\env4\\lib\\site-packages (from requests-&gt;qgoferutils) (2024.2.2)\nNote: you may need to restart the kernel to use updated packages.\n\n\n\n\n\nfrom qgoferutils.config import QGoferConfig, create_config_table\n\n# Create a QGoferConfig instance\nconfig_instance = QGoferConfig()\n\n# Accessing attributes of QGoferConfig\nprint(\"Home directory:\", config_instance.home)\nprint(\"Root directory:\", config_instance.root_dir)\n\n2024-03-09 18:57:17,308 - qgofer - INFO - Logging to C:\\Users\\admi\\.qgofer\\logs/W87gwqBURyOma4QkPG6L2g_log_24_03_09_18_57_17.log\nHome directory: C:\\Users\\admi\nRoot directory: C:\\Users\\admi\n\n\n\n\n\n\nfrom qgoferutils.db import QGoferDBWrapper\n\n# Initialize QGoferDBWrapper with a specific database path\ndb_wrapper = QGoferDBWrapper(\"C:/data/dbb\")\n\n\n\n\n\nfrom qgoferutils.logger import get_logger, get_log_path\n\n# Get a logger with a specified log path\nlogger = get_logger(\"C:/data/db\")\nlogger.debug(\"Debug message\")\n\n# Get the log path\nlog_path = get_log_path(\"\")\nprint(\"Log path:\", log_path)\n\n2024-03-09 18:57:17,500 - qgofer - DEBUG - Debug message\nLog path: C:\\Users\\admi\\saf-app\\qgofertext\\nbs\n\n\n\n\n\n\n!pip install nest_asyncio\n\n\nimport nest_asyncio\nfrom qgoferutils.requests import make_api_request, get_failed_response\n\nnest_asyncio.apply()\n\nasync def main():\n    # Make an API request to https://httpbin.org/get asynchronously\n    api_url = \"https://httpbin.org/get\"\n    response = await make_api_request(api_url)\n    print(\"API Response:\", response)\n\n# Run the event loop\nasyncio.run(main())\n\nAPI Response: &lt;Response [200]&gt;",
+    "crumbs": [
+      "qgoferutils"
+    ]
+  },
+  {
+    "objectID": "requests.html",
+    "href": "requests.html",
+    "title": "requests",
+    "section": "",
+    "text": "source\n\nmake_api_request\n\n make_api_request (url:str, http_method:str='GET', headers:dict={},\n                   data:dict={}, auth:tuple=(), cookies:dict={},\n                   params:dict={})\n\nMakes an API request to the given url with the given parameters.\n\nsource\n\n\nget_failed_response\n\n get_failed_response (error_message='Some kind of API error ccured while\n                      interacting with the given URL')",
+    "crumbs": [
+      "requests"
+    ]
+  },
+  {
+    "objectID": "config.html",
+    "href": "config.html",
+    "title": "config",
+    "section": "",
+    "text": "!pip install black\n\nRequirement already satisfied: black in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (24.2.0)\nRequirement already satisfied: click&gt;=8.0.0 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from black) (8.1.7)\nRequirement already satisfied: mypy-extensions&gt;=0.4.3 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from black) (1.0.0)\nRequirement already satisfied: packaging&gt;=22.0 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from black) (23.2)\nRequirement already satisfied: pathspec&gt;=0.9.0 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from black) (0.12.1)\nRequirement already satisfied: platformdirs&gt;=2 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from black) (4.2.0)\nRequirement already satisfied: tomli&gt;=1.1.0 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from black) (2.0.1)\nRequirement already satisfied: typing-extensions&gt;=4.0.1 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from black) (4.10.0)\nRequirement already satisfied: colorama in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from click&gt;=8.0.0-&gt;black) (0.4.6)\n\n\n\nsource\n\nQGoferConfig\n\n QGoferConfig (home:Path=Path('/home/runner'),\n               root_dir:Path=Path('/home/runner'))\n\n*The main appliation class for managing the entirety of qgofer.\nAttributes: home: The home directory of the user, defaults to Path.home() root_dir: The root directory to index, defaults to Path.home()*\n\nsource\n\n\ncreate_config_table\n\n create_config_table (qgofer_cache_db)\n\nCreate the qgofer config table.\n\nsource\n\n\nstore_hugging_face_token\n\n store_hugging_face_token (API_TOKEN, qgofer_cache_db)\n\nstore the hugging face api token\n\nq = QGoferConfig()\ncreate_config_table(q.qgofer_cache_db)\ntry:\n    store_hugging_face_token(\"what a wow\", q.qgofer_cache_db)\nexcept IntegrityError as e:\n    print(\"IntegrityError occurred:\", e)\n\n2024-03-07 21:36:20,578 - qgofer - INFO - Logging to C:\\Users\\acqua\\.qgofer\\logs/tOk1ii33REygYB2zGpzuaw_log_24_03_07_21_36_20.log\nIntegrityError occurred: UNIQUE constraint failed: qgofer_config.key",
+    "crumbs": [
+      "config"
+    ]
+  },
+  {
+    "objectID": "manage_index.html",
+    "href": "manage_index.html",
+    "title": "requests",
+    "section": "",
+    "text": "Requirement already satisfied: orjson in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (3.9.15)\nRequirement already satisfied: requests in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (2.31.0)\nRequirement already satisfied: charset-normalizer&lt;4,&gt;=2 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from requests) (3.3.2)\nRequirement already satisfied: idna&lt;4,&gt;=2.5 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from requests) (3.6)\nRequirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from requests) (2.2.1)\nRequirement already satisfied: certifi&gt;=2017.4.17 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from requests) (2024.2.2)\nRequirement already satisfied: black in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (24.2.0)\nRequirement already satisfied: click&gt;=8.0.0 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from black) (8.1.7)\nRequirement already satisfied: mypy-extensions&gt;=0.4.3 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from black) (1.0.0)\nRequirement already satisfied: packaging&gt;=22.0 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from black) (23.2)\nRequirement already satisfied: pathspec&gt;=0.9.0 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from black) (0.12.1)\nRequirement already satisfied: platformdirs&gt;=2 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from black) (4.2.0)\nRequirement already satisfied: tomli&gt;=1.1.0 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from black) (2.0.1)\nRequirement already satisfied: typing-extensions&gt;=4.0.1 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from black) (4.10.0)\nRequirement already satisfied: colorama in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from click&gt;=8.0.0-&gt;black) (0.4.6)\nRequirement already satisfied: orjson in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (3.9.15)\nRequirement already satisfied: requests in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (2.31.0)\nRequirement already satisfied: charset-normalizer&lt;4,&gt;=2 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from requests) (3.3.2)\nRequirement already satisfied: idna&lt;4,&gt;=2.5 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from requests) (3.6)\nRequirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from requests) (2.2.1)\nRequirement already satisfied: certifi&gt;=2017.4.17 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from requests) (2024.2.2)\nRequirement already satisfied: orjson in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (3.9.15)\nRequirement already satisfied: requests in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (2.31.0)\nRequirement already satisfied: charset-normalizer&lt;4,&gt;=2 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from requests) (3.3.2)\nRequirement already satisfied: idna&lt;4,&gt;=2.5 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from requests) (3.6)\nRequirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from requests) (2.2.1)\nRequirement already satisfied: certifi&gt;=2017.4.17 in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (from requests) (2024.2.2)\n2024-03-07 22:18:02,267 - qgofer - INFO - Logging to C:\\Users\\acqua\\.qgofer\\logs/913G7k-OQIWfXAZnpF8b7g_log_24_03_07_22_18_02.log\nIntegrityError occurred: UNIQUE constraint failed: qgofer_config.key\n\n\n\n!pip install aiofiles\n\nRequirement already satisfied: aiofiles in c:\\users\\acqua\\miniconda3\\envs\\qgoferutils\\lib\\site-packages (23.2.1)\n\n\n\nsource\n\nindex_folders\n\n index_folders (path:pathlib.Path, data_type:str='document')\n\nIndex the folder.\n\nsource\n\n\ncreate_index_list\n\n create_index_list (path:pathlib.Path)\n\nIndex the folders.\n\nsource\n\n\nclear_cache_table\n\n clear_cache_table ()\n\nClear the qgofer cache database.\n\nsource\n\n\ncreate_qgofer_cache\n\n create_qgofer_cache ()\n\nCreate the qgofer documents cache database.\n\nsource\n\n\nprocess_index_list\n\n process_index_list ()\n\nProcess the index list.\n\nsource\n\n\ndestroy_index_list\n\n destroy_index_list ()\n\n\ncreate_index_list(r\"C:\\Users\\acqua\\OneDrive\\Documents\\Books\")\n\n\ncreate_qgofer_cache()\n\n\ndestroy_index_list()",
+    "crumbs": [
+      "requests"
+    ]
+  },
+  {
+    "objectID": "logger.html",
+    "href": "logger.html",
+    "title": "logger",
+    "section": "",
+    "text": "source\n\nget_log_path\n\n get_log_path (path:Optional[pathlib.Path]=None)\n\nReturns the log path.\n\nsource\n\n\nget_logger\n\n get_logger (log_path=None, run_id=None)\n\n*Returns a generic logger for logging relevant information pertaining to run of qgofer.\nReturns: Python logger object*",
+    "crumbs": [
+      "logger"
+    ]
+  },
+  {
+    "objectID": "core.html",
+    "href": "core.html",
+    "title": "core",
+    "section": "",
+    "text": "source\n\nget_env_var\n\n get_env_var (var_name:str, default=None)\n\nReturns the value of an environment variable if it exists, otherwise returns the default value.\n\nsource\n\n\ngenerate_uuid\n\n generate_uuid ()\n\nGenerates a uuid 4 string Returns: an ascii friendly uuid4 string.\n\nsource\n\n\ninit_path\n\n init_path (path:Optional[pathlib.Path]=None)\n\nConvert the string to a path object.",
+    "crumbs": [
+      "core"
+    ]
+  },
+  {
+    "objectID": "db.html",
+    "href": "db.html",
+    "title": "db",
+    "section": "",
+    "text": "source\n\nQGoferDBWrapper\n\n QGoferDBWrapper (db_path)\n\nInitialize self. See help(type(self)) for accurate signature.",
+    "crumbs": [
+      "db"
+    ]
+  }
+]
