@@ -37,7 +37,7 @@ def index_folders(
                 continue
             if item.is_dir():
                 if item.name in folders_to_index:
-                    yield from index_folders(item)
+                    yield from index_folders(item, data_type)
             elif item.is_file():
                 if data_type == "document":
                     if item.suffix not in (VIDEO + AUDIO + IMAGE):
