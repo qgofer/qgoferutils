@@ -4,9 +4,5 @@ channels:
 dependencies:
   - python
   - jupyterlab
-  - nbdev
-  - orjson
-  - black
-  - requests
-  - nbqa[toolchain]
-  - aiofiles
+  - nbdev==2.3.12
+  - pre-commit
